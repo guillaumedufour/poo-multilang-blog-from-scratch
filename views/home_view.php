@@ -2,23 +2,6 @@
 <html lang="fr">
 <head>
     <?php include_once 'views/includes/head.php' ?>
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
 </head>
 <body>
 <div class="container">
@@ -37,10 +20,9 @@
 
     <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
         <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-            <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and
-                efficiently about what’s most interesting in this post’s contents.</p>
-            <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+            <h1 class="display-4 font-italic"><?php echo($lastArticle['title']) ?></h1>
+            <p class="lead my-3"><?php echo($lastArticle['sentence']) ?></p>
+            <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">lire la suite...</a></p>
         </div>
     </div>
 
@@ -48,11 +30,10 @@
         <div class="col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary">World</strong>
-                    <h3 class="mb-0">Featured post</h3>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
-                        additional content.</p>
+                    <strong class="d-inline-block mb-2 text-primary"><?php echo($lastArticleRight['category']) ?></strong>
+                    <h3 class="mb-0"><?php echo($lastArticleLeft['title']) ?></h3>
+                    <div class="mb-1 text-muted"><?php echo($lastArticleLeft['date']) ?></div>
+                    <p class="card-text mb-auto"><?php echo($lastArticleLeft['sentence']) ?></p>
                     <a href="#" class="stretched-link">Continue reading</a>
                 </div>
                 <div class="col-auto d-none d-lg-block">
@@ -68,11 +49,10 @@
         <div class="col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-success">Design</strong>
-                    <h3 class="mb-0">Post title</h3>
-                    <div class="mb-1 text-muted">Nov 11</div>
-                    <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to
-                        additional content.</p>
+                    <strong class="d-inline-block mb-2 text-success"><?php echo($lastArticleRight['category']) ?></strong>
+                    <h3 class="mb-0"><?php echo($lastArticleRight['title']) ?></h3>
+                    <div class="mb-1 text-muted"><?php echo($lastArticleRight['date']) ?></div>
+                    <p class="mb-auto"><?php echo($lastArticleRight['sentence']) ?></p>
                     <a href="#" class="stretched-link">Continue reading</a>
                 </div>
                 <div class="col-auto d-none d-lg-block">
@@ -121,42 +101,12 @@
                     sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
             </div>
 
-            <div class="p-4">
-                <h4 class="font-italic">Archives</h4>
-                <ol class="list-unstyled mb-0">
-                    <li><a href="#">March 2014</a></li>
-                    <li><a href="#">February 2014</a></li>
-                    <li><a href="#">January 2014</a></li>
-                    <li><a href="#">December 2013</a></li>
-                    <li><a href="#">November 2013</a></li>
-                    <li><a href="#">October 2013</a></li>
-                    <li><a href="#">September 2013</a></li>
-                    <li><a href="#">August 2013</a></li>
-                    <li><a href="#">July 2013</a></li>
-                    <li><a href="#">June 2013</a></li>
-                    <li><a href="#">May 2013</a></li>
-                    <li><a href="#">April 2013</a></li>
-                </ol>
-            </div>
 
-            <div class="p-4">
-                <h4 class="font-italic">Elsewhere</h4>
-                <ol class="list-unstyled">
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Facebook</a></li>
-                </ol>
-            </div>
         </aside><!-- /.blog-sidebar -->
 
     </div><!-- /.row -->
 
 </main><!-- /.container -->
 <?php include_once 'views/includes/footer.php' ?>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous">
-</script>
-<script src="assets/js/app.js"></script>
 </body>
 </html>

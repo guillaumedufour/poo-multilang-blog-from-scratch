@@ -53,9 +53,38 @@ class Articles
             INNER JOIN categories c ON c.id = a.category_id
         ');
 
-
         $reqArticles->execute([]);
         return $reqArticles->fetchAll();
+    }
+
+    /**
+     * @return array
+     */
+    static function getLastArticle($category = null)
+    {
+        global $db;
+
+        if ($category === null) {
+            $reqArticles = $db->prepare('
+            SELECT a.*, au.firstname, au.lastname, c.name AS category
+            FROM articles a 
+            INNER JOIN authors au ON au.id = a.author_id
+            INNER JOIN categories c ON c.id = a.category_id
+            ORDER BY a.id DESC
+            LIMIT 1');
+        } else {
+            $reqArticles = $db->prepare('
+            SELECT a.*, au.firstname, au.lastname, c.name AS category
+            FROM articles a 
+            INNER JOIN authors au ON au.id = a.author_id
+            INNER JOIN categories c ON c.id = a.category_id
+            WHERE c.id = ?
+            ORDER BY a.id DESC
+            LIMIT 1');
+        }
+
+        $reqArticles->execute([str_secur($category)]);
+        return $reqArticles->fetch();
     }
 
 }
