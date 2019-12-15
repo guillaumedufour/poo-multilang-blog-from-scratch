@@ -17,3 +17,6 @@ define("DATABASE_HOST", "localhost");
 define("DATABASE_NAME", "poo-blog");
 define("DATABASE_USER", "root");
 define("DATABASE_PASSWORD", "");
+
+//language
+define('DEFAULT_LANGUAGE', 'fr');

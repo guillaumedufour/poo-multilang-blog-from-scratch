@@ -13,6 +13,10 @@ if (isset($_GET['page']) && !empty($_GET['page'])) {
     $page = 'home';
 }
 
+$_SESSION['lang'] = getUserLanguage();
+
+
+
 $allPages = scandir('controllers/');
 
 if (in_array($page.'_controller.php', $allPages)) {
