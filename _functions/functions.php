@@ -27,3 +27,14 @@ function getUserLanguage()
         }
     }
 }
+
+function getPageLanguage($lang, $pages)
+{
+    foreach ($pages as $p) {
+        $jsonString = file_get_contents('_lang/'.$lang.'/'.$p.'.json');
+        $json = json_decode($jsonString);
+        $dataPage[$p] = $json;
+    }
+    return (object)$dataPage;
+}
+

@@ -7,6 +7,9 @@
 <div class="container">
 
     <?php include_once 'views/includes/header.php' ?>
+
+    <h1><?php echo($lang->footer->footer);?><h1>
+
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
 
